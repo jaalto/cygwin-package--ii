@@ -1,0 +1,32 @@
+From 2b83c2ad27faaf4502c5e2e47cc92fed9b5de95f Mon Sep 17 00:00:00 2001
+From: Jari Aalto <jari.aalto@cante.net>
+Date: Thu, 14 Feb 2008 19:13:49 +0200
+Subject: [PATCH] Makefile: (install): skip documents
+
+Signed-off-by: Jari Aalto <jari.aalto@cante.net>
+---
+ Makefile |    4 ++--
+ 1 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index 0bd4ca5..6eb8dd6 100644
+--- a/Makefile
++++ b/Makefile
+@@ -35,12 +35,12 @@ ii: ${OBJ}
+ 	@${CC} -o $@ ${OBJ} ${LDFLAGS}
+ 
+ install: all
+-	@mkdir -p ${DESTDIR}${DOCDIR}
++	# @mkdir -p ${DESTDIR}${DOCDIR}
+ 	@mkdir -p ${DESTDIR}${BINDIR}
+ 	@mkdir -p ${DESTDIR}${MAN1DIR}
+ 
+ 	@install -d ${DESTDIR}${BINDIR} ${DESTDIR}${MAN1DIR}
+-	@install -m 644 CHANGES README query.sh FAQ LICENSE ${DESTDIR}${DOCDIR}
++	# @install -m 644 CHANGES README query.sh FAQ LICENSE ${DESTDIR}${DOCDIR}
+ 	@install -m 775 ii ${DESTDIR}${BINDIR}
+ 	@install -m 444 ii.1 ${DESTDIR}${MAN1DIR}
+ 	@echo "installed ii"
+-- 
+1.5.3.8
+
